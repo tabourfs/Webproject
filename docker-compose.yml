@@ -1,0 +1,38 @@
+services:
+  php:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/var/www/html
+      - ./frontend:/var/www/html/frontend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-gabarit}
+      DB_USER: ${DB_USER:-gabarit_user}
+      DB_PASS: ${DB_PASSWORD:-gabarit_pass}
+
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_DATABASE: ${DB_NAME:-gabarit}
+    depends_on:
+      - db
+  

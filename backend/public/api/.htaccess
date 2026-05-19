@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^healthcheck/?$ healthcheck.php [L]
+RewriteRule ^fake/?$ fake.php [L]
+
