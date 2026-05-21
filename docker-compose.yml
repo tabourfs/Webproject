@@ -16,12 +16,18 @@ services:
       DB_USER: ${DB_USER:-gabarit_user}
       DB_PASS: ${DB_PASSWORD:-gabarit_pass}
 
-
   db:
-    image: mariadb
-    restart: always
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db-data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     environment:
-      MARIADB_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_NAME:-gabarit}
+      MYSQL_USER: ${DB_USER:-gabarit_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-gabarit_pass}
   
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

@@ -1,3 +1,4 @@
 .env.example
 /frontend/archive.html
 /frontend/signin.html.txt
+/db-data
