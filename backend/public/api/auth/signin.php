@@ -8,17 +8,18 @@
 
     session_start();
 
-    $Password_hashed = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password_hashed = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $username = $_POST['username'];
     $api_key = $_POST['api_key'];
 
 
-
     if (isset($_SESSION['Logged'])) {
 
-        echo "Error, You Are Not Allowed To Be There";
+        header("refresh:1; url=../../../index.php");
 
+        echo "Error, You Are Not Allowed To Be There";
+        exit();
     }
 
     if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["confirm_password"]) && isset($_POST["api_key"])) {
@@ -27,7 +28,7 @@
 
         $stmt = $mysqli->prepare("INSERT INTO user (`id`, `username`, `password_hash`, `api_key`) VALUES(NULL, ?, ?, ?)");
 
-        $stmt->bind_param("sss", $username, $Password_hashed, $api_key);
+        $stmt->bind_param("sss", $username, $password_hashed, $api_key);
 
         $stmt->execute();
 
@@ -35,7 +36,7 @@
 
     } else {
 
-        header("refresh:2; url=../../../signin.php");
+        header("refresh:1;url=../../../signin.php");
 
         echo "Error: Missing Fields, You Will Be Redirected To The Sign In Page ";
 
@@ -45,15 +46,15 @@
 
     if ($result == FALSE) {
 
-        header("refresh:2; url=../../../main.html");
+        header("refresh:1; url=../../../login.php");
 
-        echo "Creating Accound, You Will Be Redirected To The Main Page...";
+        echo "Creating Accound, You Will Be Redirected To The Login Page...";
 
         exit();
 
     } else {
 
-        header("refresh:2; url=../../../signin.php");
+        header("refresh:1; url=../../../signin.php");
 
         echo "Error, Couldn't Create The Account";
 

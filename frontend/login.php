@@ -1,4 +1,21 @@
 <script src="js/login.js"></script>
+<?php
+
+ini_set('display_errors', 1);
+
+ini_set('display_startup_errors', 1);
+
+error_reporting(E_ALL);
+
+if (isset($_SESSION['Logged'])) {
+
+    header("refresh:1; url=index.html");
+
+    echo "Error, Already Logged In";
+
+    exit();
+
+}?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

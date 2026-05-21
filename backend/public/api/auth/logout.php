@@ -1,24 +1,12 @@
 <?php
-require_once dirname(__DIR__) . '/api-init.php';
-require_once dirname(__DIR__, 3) . '/includes/auth.php';
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    jsonResponse(['error' => 'Method not allowed'], 405);
+session_start();
+if(isset($_GET['logout-submit']) && $_GET['logout-submit'] == 'logout'){
+  session_unset();
+  session_destroy();
 }
 
-$_SESSION = [];
-if (ini_get('session.use_cookies')) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-}
-session_destroy();
+header("refresh:1; url=../../../index.php");
 
-jsonResponse(['message' => 'Logged out']);
+        echo "Logout In Progress";
 
-header("Location: http://localhost:8080/");
-exit;
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-</html>
+        exit();

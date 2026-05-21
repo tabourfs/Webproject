@@ -1,7 +1,6 @@
 <script src="js/signin.js">
     
 </script>
-
 <?php
 
 ini_set('display_errors', 1);
@@ -12,7 +11,7 @@ error_reporting(E_ALL);
 
 if (isset($_SESSION['Logged'])) {
 
-    header("refresh:3; url=index.php");
+    header("refresh:1; url=index.html");
 
     echo "Error, Already Logged In";
 

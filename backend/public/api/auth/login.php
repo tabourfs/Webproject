@@ -28,7 +28,7 @@
 
             $_SESSION['Logged'] = true;
 
-            header("refresh:0.1; url=../../../main.php");
+            header("refresh:0.1; url=../../../index.php");
 
             exit();
 
@@ -44,7 +44,7 @@
 
     } else {
 
-        header("refresh:2; url=../../../login.html");
+        header("refresh:2; url=../../../login.php");
 
         echo "Error: Incorrect Identifiers, You Will Be Redirected To The Login Page";
 
