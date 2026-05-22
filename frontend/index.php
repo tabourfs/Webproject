@@ -58,10 +58,7 @@ if(isset($_SESSION["Logged"])){?>
           while($file = $result->fetch_array(MYSQLI_ASSOC)){
             echo '<div><img src="/images/file.png" alt="File Icon" style="width:60px;height:70px;">'.$file["name"].'</img></div>';
           }
-
-
-            
-            
+ 
           ?>
         </div>
       </section>

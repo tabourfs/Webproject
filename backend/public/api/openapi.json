@@ -64,21 +64,22 @@
         }
       }
     },
-    "/api/exemples": {
+    "/api/auth/signin": {
       "post": {
-        "summary": "Créer une entrée dans la table exemple",
+        "summary": "Create A New User And Redirect To Login",
         "operationId": "postExemple",
         "requestBody": {
-          "required": false,
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
+                "required":["username", "password", "confirm_password", "api_key"],
                 "properties": {
                   "libelle": {
                     "type": "string",
                     "maxLength": 255,
-                    "description": "Texte optionnel (max 255 caractères)"
+                    "description": "The api_key is the one from TrueNAS"
                   }
                 }
               },

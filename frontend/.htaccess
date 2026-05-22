@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^index/?$ index.php [L]
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^signin/?$ signinphp [L]
