@@ -64,22 +64,21 @@
         }
       }
     },
-    "/api/auth/signin": {
+    "/api/previousfolder": {
       "post": {
-        "summary": "Create A New User And Redirect To Login",
+        "summary": "Send Back To The Previous Folder",
         "operationId": "postExemple",
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required":["username", "password", "confirm_password", "api_key"],
                 "properties": {
                   "libelle": {
                     "type": "string",
                     "maxLength": 255,
-                    "description": "The api_key is the one from TrueNAS"
+                    "description": ""
                   }
                 }
               },
