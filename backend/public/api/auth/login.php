@@ -28,6 +28,10 @@
 
             $_SESSION['Logged'] = true;
 
+            $_SESSION['Folder'] = 0;
+
+            $_SESSION["Path"] = array(-1);
+
             header("refresh:0.1; url=../../../index.php");
 
             exit();
