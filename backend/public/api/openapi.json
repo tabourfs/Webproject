@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "API gabarit minimal",
-    "description": "Documentation OpenAPI du boilerplate (healthcheck, fake, exemples).",
+    "title": "API TrueNAS Web Viewer",
+    "description": "Documentation For The Project",
     "version": "1.0.0"
   },
   "servers": [
@@ -83,9 +83,6 @@
                 }
               },
               "examples": {
-                "avecLibelle": {
-                  "value": { "libelle": "Ma première ligne" }
-                },
                 "vide": {
                   "value": {}
                 }
