@@ -10,7 +10,7 @@
 
     $password_hashed = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $username = $_POST['username'];
+    $username = trim($_POST['username']);
     $api_key = $_POST['api_key'];
 
 
