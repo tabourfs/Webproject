@@ -65,7 +65,7 @@
       }
     },
     "/api/previousfolder": {
-      "post": {
+      "get": {
         "summary": "Send Back To The Previous Folder",
         "operationId": "postExemple",
         "requestBody": {
