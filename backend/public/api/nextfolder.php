@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_GET["folder_id"])){
-    $_SESSION["Previous"][] =$_SESSION["Folder"];
+    $_SESSION["Path"][] =$_SESSION["Folder"];
     $_SESSION["Folder"] = $_GET["folder_id"];
 
 }
