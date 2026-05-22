@@ -34,7 +34,7 @@ if (isset($_SESSION['Logged'])) {
         <h1 class="text-2xl font-semibold tracking-tight "> 
         Sign In Page
         </h1>
-        <a href="index.html"
+        <a href="index.php"
           class="mt-4 rounded-md bg-slate-800 px-2 py-1 text-lg font-medium text-white hover:bg-slate-700"
           >Back
         </a>
